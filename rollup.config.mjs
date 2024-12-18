@@ -5,27 +5,39 @@ import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 import packageJson from "./package.json" with { type: "json" };
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import { babel } from '@rollup/plugin-babel';
+import css from "rollup-plugin-import-css";
+import terser from '@rollup/plugin-terser';
+import preserveDirectives from 'rollup-plugin-preserve-directives';
 
 export default [
   {
-    preserveModules: true,
     input: "src/index.ts",
     output: [
       {
-        file: packageJson.main,
+        dir: packageJson.main,
         format: "esm",
         sourcemap: true,
+        preserveModules: true,
       },
     ],
+    onwarn(warning, warn) {
+      if (warning.code !== 'MODULE_LEVEL_DIRECTIVE') {
+        warn(warning);
+      }
+    },
     plugins: [
       peerDepsExternal(),
+      css({ output: "base.css"}),
       resolve(),
       commonjs(),
       typescript({
         tsconfig: "./tsconfig.json",
         exclude: ["**/*.test.tsx", "**/*.test.ts", "**/*.stories.ts"],
       }),
-      postcss({ extensions: [".css"], inject: true, extract: false }),
+      babel({ presets: ['@babel/preset-react'] }),
+      preserveDirectives(),
+      terser()
     ],
   },
   {

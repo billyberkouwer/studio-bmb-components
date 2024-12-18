@@ -1,7 +1,7 @@
 {
   "name": "studio-bmb-components",
   "version": "0.0.1",
-  "main": "dist/index.js",
+  "main": "dist/",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -63,6 +63,7 @@
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-preserve-directives": "^0.4.0",
     "storybook": "^8.4.7",
     "tslib": "^2.6.2",
     "typescript": "^5.4.5",
@@ -74,5 +75,9 @@
     "react-dom": "^19.0.0",
     "react-player": "^2.16.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup-plugin-import-css": "^3.5.8"
+  }
 }
