@@ -1,5 +1,5 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 declare function NextImage({ src }: {
     src: string;
@@ -13,6 +13,8 @@ declare function VideoComponent({ src }: {
     src: string;
 }): react_jsx_runtime.JSX.Element;
 
-declare const Button: () => react_jsx_runtime.JSX.Element;
+declare const Button: ({ children, }: {
+    children: React.ReactNode | React.ReactNode[];
+}) => react_jsx_runtime.JSX.Element;
 
 export { Button, NextImage, TextBox, VideoComponent };
