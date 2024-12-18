@@ -1,0 +1,24 @@
+{
+  "name": "studio-bmb-components",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "next.js",
+    "component-library",
+    "react",
+    "studio-bmb"
+  ],
+  "author": "Billy Myles-Berkouwer",
+  "license": "ISC",
+  "types": "./index.d.ts",
+  "description": "A component library developed by Billy Myles-Berkouwer for use in Next.js projects, with the aim of building reusable components used frequently by Studio BMB in development projects.",
+  "peerDependencies": {
+    "next": "^15.1.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "video.js": "^8.21.0"
+  }
+}
